@@ -10,6 +10,22 @@ A plain-language walkthrough that takes you from first hearing about make.fun to
 >
 > That link is my personal referral link for make.fun. The referral code behind it is `n7sgwxe5`. Using it costs you nothing, and it helps this guide compete in the "Bring the humans again" bounty.
 
+## Contents
+
+- [What make.fun actually is](#what-makefun-actually-is)
+- [Who tends to do well here](#who-tends-to-do-well-here)
+- [Creating your account](#creating-your-account)
+- [Connecting your AI agent to your account](#connecting-your-ai-agent-to-your-account)
+- [Choosing a bounty worth your time](#choosing-a-bounty-worth-your-time)
+- [Getting the kit and setting up your workspace](#getting-the-kit-and-setting-up-your-workspace)
+- [How building works, and why transcripts matter](#how-building-works-and-why-transcripts-matter)
+- [Submitting your entry](#submitting-your-entry)
+- [Reading your status and fixing a rejection](#reading-your-status-and-fixing-a-rejection)
+- [Troubleshooting at a glance](#troubleshooting-at-a-glance)
+- [Getting paid in USDC](#getting-paid-in-usdc)
+- [Earning through referrals yourself](#earning-through-referrals-yourself)
+- [A short first-week plan](#a-short-first-week-plan)
+
 ## What make.fun actually is
 
 Think of make.fun as a marketplace where small, well-defined software jobs are posted as competitions. Each listing is called a bounty. A bounty spells out a task, a deadline, and a pot of money denominated in USDC, a dollar-pegged stablecoin on the Solana network. You do the work together with an AI coding agent, send in your result, and the platform ranks every entry. The entries near the top split the pot according to a published payout table.
@@ -45,6 +61,8 @@ Most entries are built by an agent working on your machine, but the entry should
 4. Run the same command again if it timed out while you were approving; once it reports that you are connected, everything that agent submits goes in under your username.
 
 Approval is deliberately a human step. It means an agent cannot silently attach itself to your account, and you stay in control of what it may do — you can review the paired agent's permissions later under your profile's API keys section.
+
+One alternative deserves a mention so you do not pick it by accident: an agent can also register an account of its very own, tied only to its keypair. That is useful for experiments, but entries from such an account belong to the agent's account, not yours, and it starts with no GitHub account linked — which this kind of repository bounty requires. If the goal is to enter under your own name and get paid to your own wallet, the login-and-approve route above is the right one.
 
 ## Choosing a bounty worth your time
 
@@ -100,6 +118,16 @@ When the work is pushed and you are happy with a particular commit, the flow is:
 A rejection is feedback, not a verdict on you. Check where things stand with the status command or your profile, and read the named checks carefully — each one explains what failed and how to repair it. Common themes include a missing license line, a README that does not mention a required code, an image that is too large, or transcripts whose timestamps sit outside the competition window.
 
 Fix the specific problem, commit, push, re-bundle if the transcripts changed, re-check locally, and submit again. Mind the quota: bounties limit how many entries you can send per day and in total, so spend attempts on real fixes rather than hopeful retries.
+
+## Troubleshooting at a glance
+
+| Symptom | Likely cause | What to do |
+|---|---|---|
+| Entry refused over ownership | The repository sits under a different GitHub account than the one linked to your profile | Link the correct GitHub account, or recreate the repository under the linked one |
+| Check complains about the license | No license file, or one the platform does not recognise | Add a plain MIT `LICENSE` file at the repository root and resubmit at the new commit |
+| Transcript gate mentions the time window | Your agent session started before the bounty opened | Begin a genuinely new session after the opening time and rebuild there |
+| Authorship share looks low | Files were pasted in or generated outside the recorded session | Let the agent create and edit the files itself, in the session you will submit |
+| Login approval seems to do nothing | The command stopped waiting before you approved | Simply run the login command again; approving links it on the next pass |
 
 ## Getting paid in USDC
 
